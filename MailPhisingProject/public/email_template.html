@@ -1,0 +1,20 @@
+<span><strong>From:</strong> {{ sender_name }} &lt;{{ sender_email }}&gt;</span>
+<span><strong>To:</strong> {{ recipient_email }}</span>
+<span><strong>date:</strong> {{ date }}</span>
+<span><strong>Subject:</strong> {{ subject }}</span>
+
+<p>Dear {{ recipient_name }},</p>
+
+<p>{{ body_text }}</p>
+
+
+<p class="warning">
+  {{ warning_text }}
+</p>
+
+
+<a href="{{ link_url }}" class="button">
+  {{ button_text }}
+</a>
+
+<p>{{ closing_text }}</p>
