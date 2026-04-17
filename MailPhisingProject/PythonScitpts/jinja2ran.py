@@ -3,14 +3,14 @@ from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 import os
 
-# Load template
+# Load template, Behöver fortfarande implementeras, ligger lokalt temporärt
 env = Environment(loader=FileSystemLoader('.'))
 template = env.get_template('js/email_template.html')
 
 # Där våra filer skall ligga
 os.makedirs("generated_emails", exist_ok=True)
 
-# All vår data, satte in lite manuellt men kan legit ba importera listor
+# All vår data, satte in lite manuellt men kan legit ba importera listor, generic genererade fakedomains,
 namn = [""]
 domains_legit = ["microsoft.com", "company.com"]
 domains_fake = ["micr0soft-secure.com", "company-support.co", "secure-login-company.com", "ao3.com"]
@@ -37,7 +37,7 @@ warnings = [
 ]
 
 #Denna kan vi ändra hur mycket som helst, data innehåller alla datapunkter vi kan ändra
-#
+#la in lite random exempel för att se konceptet, allt callar konstant rand för att plocka ur dataset.
 def generate_email(i):
     is_phishing = random.choice([True, False])
 
@@ -66,8 +66,8 @@ def generate_email(i):
     with open(filename, "w", encoding="utf-8") as f:
         f.write(rendered)
 
-# Generera mails 
-for i in range(100):
+# Justera n om det behövs
+for i in range(10):
     generate_email(i)
 
-print("Emails saved in /generated_emails")
+print("Saving under /generated_emails")
