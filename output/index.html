@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inbox</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f2f1;
+  }
+
+  .topbar {
+    background: #0078d4;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+  }
+
+  .container {
+    display: flex;
+    height: calc(100vh - 40px);
+  }
+
+  /* LEFT: inbox list */
+  .sidebar {
+    width: 320px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+
+  .email-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+
+  .email-item:hover {
+    background: #f5f5f5;
+  }
+
+  .email-item.active {
+    background: #e5f1fb;
+  }
+
+  .sender {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .subject {
+    font-size: 13px;
+  }
+
+  .preview {
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* RIGHT: email viewer */
+  .viewer {
+    flex: 1;
+    background: #ffffff;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+  Inbox – Outlook Simulation
+</div>
+
+<div class="container">
+
+  <!-- Inbox list -->
+
+  <div class="sidebar" id="emailList"></div>
+
+  <!-- Email viewer -->
+
+  <div class="viewer">
+    <iframe id="viewer"></iframe>
+  </div>
+
+</div>
+
+<script>
+const emails = [
+  {
+    file: "email_1_easy.html",
+    sender: "Support Team",
+    subject: "Account Alert",
+    preview: "Your account is in danger..."
+  },
+  {
+    file: "email_2_medium.html",
+    sender: "IT Support",
+    subject: "Password Expiration",
+    preview: "Your password will expire today..."
+  },
+  {
+    file: "email_3_hard.html",
+    sender: "IT Department",
+    subject: "New Device Login",
+    preview: "We noticed a login from a new device..."
+  },
+  {
+    file: "email_4_dodgy.html",
+    sender: "Security Team",
+    subject: "⚠ Account Locked",
+    preview: "Immediate action required..."
+  },
+  {
+    file: "email_5_very_hard.html",
+    sender: "IT Support",
+    subject: "New sign-in detected",
+    preview: "We noticed a sign-in from a new browser..."
+  }
+];
+
+const list = document.getElementById("emailList");
+const viewer = document.getElementById("viewer");
+
+emails.forEach((mail, index) => {
+  const item = document.createElement("div");
+  item.className = "email-item";
+
+  item.innerHTML = `
+    <div class="sender">${mail.sender}</div>
+    <div class="subject">${mail.subject}</div>
+    <div class="preview">${mail.preview}</div>
+  `;
+
+  item.onclick = () => {
+    document.querySelectorAll(".email-item").forEach(e => e.classList.remove("active"));
+    item.classList.add("active");
+    viewer.src = mail.file;
+  };
+
+  list.appendChild(item);
+});
+
+// Auto-open first email
+viewer.src = emails[0].file;
+</script>
+
+</body>
+</html>
