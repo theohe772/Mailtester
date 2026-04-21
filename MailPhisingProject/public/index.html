@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- Genererad fil lokalt, exempel på hur det kan se ut -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Email Test</title>
+
+<style>
+  body {
+    background-color: #f3f2f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .email-container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .header {
+    background-color: #0078d4;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .sub-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 14px;
+  }
+
+  .sub-header span {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .content {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #323130;
+  }
+
+  .button {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 16px;
+    background-color: #0078d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+
+  .warning {
+    color: #a4262c;
+    font-weight: bold;
+  }
+
+  .footer {
+    padding: 15px 20px;
+    font-size: 12px;
+    color: #605e5c;
+    border-top: 1px solid #e1e1e1;
+    background-color: #faf9f8;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="email-container">
+
+  <div class="header">
+    Microsoft Outlook (KFS ah ptsd)
+  </div>
+
+  <div class="sub-header">
+    <span><strong>Från:</strong> IT Support &lt;it-support@micr0soft-blgl.com&gt;</span>
+    <span><strong>Till:</strong> "insert mail list"</span>
+    <span><strong>Datum:</strong> April 17, 2026</span>
+    <span><strong>Ämne:</strong> NU, lösenord byt!!</span>
+  </div>
+
+  <!-- Skall ligga namn från vår jinja2, behöver läggas in -->
+  <div class="content">
+    <p>Hej! "rand(maillista)",</p>
+
+```
+<p>
+  Ditt lösenord kommer att gå ut, pwease verifiera med bankID.
+</p>
+
+<p class="warning">
+  Din bank kommer sprängas om du inte fixar detta
+</p>
+
+<a href="#" class="button">Uppdatera lösenord</a>
+
+<p>
+  Om du redan uppdaterat ditt lösenord, igga detta.
+</p>
+
+<p>
+  Vänligen,<br>
+  AO3 Support Team
+</p>
+```
+
+  </div>
+
+  <div class="footer">
+    © 2026 Microsoft Corporation
+  </div>
+
+</div>
+
+</body>
+</html>
